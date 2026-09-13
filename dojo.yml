@@ -1,1 +1,16 @@
 
+id: example
+name: "Computer Architecture (Memory Assembly and Debugging Assembly) - Debugging with GDBD, STRACE e LTRACE"
+type: example
+award:
+  emoji: 😀
+image: pwncollege/challenge-simple
+modules:
+  - id: exercicio-1
+  - id: exercicio-2
+  - id: exercicio-3
+  - id: exercicio-4
+  - id: exercicio-5
+  - id: exercicio-6
+  - id: exercicio-7
+  - id: exercicio-8
