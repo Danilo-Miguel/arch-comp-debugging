@@ -1,0 +1,40 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/bug3.asm"
+OBJ="/home/hacker/bug3.o"
+EXE="/home/hacker/bug3"
+ESPERADO="Assembly com bug de descritor!"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo bug3.asm não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto bug3.o não encontrado. Monte com: nasm -f elf32 bug3.asm -o bug3.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel bug3 não encontrado. Ligue com: ld -m elf_i386 bug3.o -o bug3"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "bug3 existe mas não é executável. Rode: chmod +x bug3"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 32-bit"; then
+    echo "bug3 não é um executável ELF 32-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE" 2>/dev/null)
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída padrão (stdout) incorreta ou vazia. A mensagem está indo para o descritor errado?"
+    echo "Esperado em stdout: '$ESPERADO' | Obtido: '$SAIDA'"
+fi

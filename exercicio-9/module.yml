@@ -1,0 +1,4 @@
+name: "Debugging Combinado (STRACE + GDB) - Exercício 9"
+challenges:
+  - id: debug-combo-strace-gdb-x86-nasm
+    name: "STRACE + GDB - Ponteiro Inválido em Syscall - Assembly x86 (NASM)"

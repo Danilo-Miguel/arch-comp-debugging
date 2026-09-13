@@ -1,0 +1,4 @@
+name: "Debugging com STRACE - Exercício 3"
+challenges:
+  - id: debug-strace-x86-nasm
+    name: "Rastreando Syscalls com STRACE - Assembly x86 (32 bits, NASM)"

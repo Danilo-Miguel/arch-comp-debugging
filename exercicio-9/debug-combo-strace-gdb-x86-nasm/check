@@ -1,0 +1,40 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/bug9.asm"
+OBJ="/home/hacker/bug9.o"
+EXE="/home/hacker/bug9"
+ENTRADA="abc123"
+ESPERADO="Digite algo: abc123"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo bug9.asm não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto bug9.o não encontrado. Monte com: nasm -f elf32 bug9.asm -o bug9.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel bug9 não encontrado. Ligue com: ld -m elf_i386 bug9.o -o bug9"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "bug9 existe mas não é executável. Rode: chmod +x bug9"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 32-bit"; then
+    echo "bug9 não é um executável ELF 32-bit válido."
+    exit 1
+fi
+
+SAIDA=$(echo "$ENTRADA" | "$EXE")
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Esperado: '$ESPERADO' | Obtido: '$SAIDA'"
+fi

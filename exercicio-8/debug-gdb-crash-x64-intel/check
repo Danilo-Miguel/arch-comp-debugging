@@ -1,0 +1,45 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/bug8.s"
+OBJ="/home/hacker/bug8.o"
+EXE="/home/hacker/bug8"
+ESPERADO="OK"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo bug8.s não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto bug8.o não encontrado. Monte com: as bug8.s -o bug8.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel bug8 não encontrado. Ligue com: ld bug8.o -o bug8"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "bug8 existe mas não é executável. Rode: chmod +x bug8"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 64-bit"; then
+    echo "bug8 não é um executável ELF 64-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE")
+RC=$?
+
+if [ "$RC" -eq 139 ]; then
+    echo "O programa ainda está sofrendo SIGSEGV (Segmentation fault). Use o GDB para achar o ponteiro invalido."
+    exit 1
+fi
+
+if [ "$SAIDA" == "$ESPERADO" ] && [ "$RC" -eq 0 ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída ou código de saída incorretos. Esperado: '$ESPERADO' com código 0 | Obtido: '$SAIDA' com código $RC"
+fi

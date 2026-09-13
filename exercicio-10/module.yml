@@ -1,0 +1,4 @@
+name: "Debugging Combinado (LTRACE + GDB) - Exercício 10"
+challenges:
+  - id: debug-combo-ltrace-gdb-x64-att
+    name: "LTRACE + GDB - Argumentos Trocados e Registrador Sujo - Assembly x64 (GAS, AT&T)"

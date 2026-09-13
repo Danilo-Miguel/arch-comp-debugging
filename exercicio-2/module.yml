@@ -1,0 +1,4 @@
+name: "Debugging com GDB - Exercício 2"
+challenges:
+  - id: debug-gdb-x64-nasm
+    name: "Depurando com GDB - Registradores em Assembly x64 (NASM)"

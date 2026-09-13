@@ -1,0 +1,40 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/bug7.s"
+OBJ="/home/hacker/bug7.o"
+EXE="/home/hacker/bug7"
+ESPERADO="0123456789"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo bug7.s não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto bug7.o não encontrado. Monte com: as --32 bug7.s -o bug7.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel bug7 não encontrado. Ligue com: ld -m elf_i386 bug7.o -o bug7"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "bug7 existe mas não é executável. Rode: chmod +x bug7"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 32-bit"; then
+    echo "bug7 não é um executável ELF 32-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE")
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta (o laço está rodando o número certo de vezes?)."
+    echo "Esperado: '$ESPERADO' | Obtido: '$SAIDA'"
+fi

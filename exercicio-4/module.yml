@@ -1,0 +1,4 @@
+name: "Debugging com STRACE - Exercício 4"
+challenges:
+  - id: debug-strace-x64-nasm
+    name: "Rastreando Syscalls com STRACE - Assembly x64 (NASM)"

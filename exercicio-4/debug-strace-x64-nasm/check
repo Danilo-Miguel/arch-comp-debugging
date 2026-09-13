@@ -1,0 +1,40 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/bug4.asm"
+OBJ="/home/hacker/bug4.o"
+EXE="/home/hacker/bug4"
+ESPERADO="Debugando syscalls em x64!"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo bug4.asm não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto bug4.o não encontrado. Monte com: nasm -f elf64 bug4.asm -o bug4.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel bug4 não encontrado. Ligue com: ld bug4.o -o bug4"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "bug4 existe mas não é executável. Rode: chmod +x bug4"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 64-bit"; then
+    echo "bug4 não é um executável ELF 64-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE")
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta (será que o tamanho passado para o write está certo?)."
+    echo "Esperado: '$ESPERADO' | Obtido: '$SAIDA'"
+fi

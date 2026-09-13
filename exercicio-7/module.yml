@@ -1,0 +1,4 @@
+name: "Debugging Avançado com GDB - Exercício 7"
+challenges:
+  - id: debug-gdb-loop-x86-intel
+    name: "GDB Avançado - Laço com Off-by-One em Assembly x86 (GAS, sintaxe Intel)"

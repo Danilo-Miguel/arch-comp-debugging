@@ -1,0 +1,4 @@
+name: "Debugging com LTRACE - Exercício 5"
+challenges:
+  - id: debug-ltrace-x64-att
+    name: "Rastreando Chamadas de Biblioteca com LTRACE - Assembly x64 (GAS, AT&T)"

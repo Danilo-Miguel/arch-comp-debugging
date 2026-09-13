@@ -1,6 +1,6 @@
 
 id: example
-name: "Computer Architecture (Memory Assembly and Debugging Assembly) - Debugging with GDBD, STRACE e LTRACE"
+name: "Computer Architecture (Memory Assembly and Debugging Assembly) - Debugging with GDB, STRACE e LTRACE"
 type: example
 award:
   emoji: 😀
@@ -14,3 +14,5 @@ modules:
   - id: exercicio-6
   - id: exercicio-7
   - id: exercicio-8
+  - id: exercicio-9
+  - id: exercicio-10

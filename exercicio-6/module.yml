@@ -1,0 +1,4 @@
+name: "Debugging com LTRACE - Exercício 6"
+challenges:
+  - id: debug-ltrace-x64-nasm
+    name: "Rastreando Chamadas de Biblioteca com LTRACE - Assembly x64 (NASM)"

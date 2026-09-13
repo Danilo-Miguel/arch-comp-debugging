@@ -1,0 +1,39 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/bug10.s"
+OBJ="/home/hacker/bug10.o"
+EXE="/home/hacker/bug10"
+ESPERADO="Soma: 15 + 27 = 42"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo bug10.s não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto bug10.o não encontrado. Monte com: as bug10.s -o bug10.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel bug10 não encontrado. Ligue com ld contra a libc.so.6 (veja a descrição)."
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "bug10 existe mas não é executável. Rode: chmod +x bug10"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 64-bit"; then
+    echo "bug10 não é um executável ELF 64-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE")
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Esperado: '$ESPERADO' | Obtido: '$SAIDA'"
+fi

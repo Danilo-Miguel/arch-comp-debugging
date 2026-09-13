@@ -1,0 +1,4 @@
+name: "Debugging Avançado com GDB - Exercício 8"
+challenges:
+  - id: debug-gdb-crash-x64-intel
+    name: "GDB Avançado - Diagnosticando um SIGSEGV em Assembly x64 (GAS, sintaxe Intel)"
