@@ -1,7 +1,7 @@
 
 id: example
-name: "- Debugging with GDB, STRACE e LTRACE"
-type: example - Computer Architecture (Memory Assembly and Debugging Assembly) 
+name: "Computer Architecture (Memory Assembly and Debugging Assembly) - Debugging with GDB, STRACE e LTRACE"
+type: example
 award:
   emoji: 😀
 image: pwncollege/challenge-simple
