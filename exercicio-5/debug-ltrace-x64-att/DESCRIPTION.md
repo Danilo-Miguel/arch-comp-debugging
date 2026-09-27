@@ -53,7 +53,7 @@ ltrace ./bug5
 
 Procure a linha `printf("O valor calculado eh: %d\n", N)`. O `ltrace`
 mostra o valor **real** de `N` que está sendo passado como argumento
-para a `printf` — compare com o valor `42` esperado.
+para a `printf` compare com o valor `42` esperado.
 
 ## 3. Corrija, remonte e religue
 

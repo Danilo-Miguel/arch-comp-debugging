@@ -1,7 +1,7 @@
 <h2 align="center">Rastreando Chamadas de Biblioteca com LTRACE - Assembly x64 (NASM)</h2>
 
 O programa abaixo tem duas mensagens na seção `.data`, mas chama
-`puts` apontando para a mensagem **errada** — um clássico "bug de
+`puts` apontando para a mensagem **errada** um clássico "bug de
 copiar e colar".
 
 Salve como `bug6.asm` no seu diretório home:

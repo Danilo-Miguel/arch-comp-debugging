@@ -72,4 +72,4 @@ cat /tmp/saida.txt
 
 O `/challenge/check` confere se `bug3.o` e `bug3` existem, se `bug3`
 é um executável ELF 32-bit válido, e se a mensagem completa aparece
-na **saída padrão** (stdout) — e não em stderr.
+na **saída padrão** (stdout) e não em stderr.

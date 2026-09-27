@@ -74,7 +74,7 @@ gdb ./bug7
 
 Conte quantas vezes o breakpoint em `loop_corpo` é atingido e quais
 valores `ecx` assume. O laço deveria rodar com `ecx` indo de `0` até
-`9` (10 vezes). Verifique se é isso que realmente acontece — ou se o
+`9` (10 vezes). Verifique se é isso que realmente acontece ou se o
 laço roda uma vez a mais, incluindo um valor de `ecx` que não deveria
 entrar no corpo do laço.
 

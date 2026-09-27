@@ -51,7 +51,7 @@ ld -m elf_i386 bug9.o -o bug9
 echo "abc123" | ./bug9
 ```
 
-O texto digitado nunca aparece de volta — só o prompt.
+O texto digitado nunca aparece de volta só o prompt.
 
 ## 2. Investigue com o strace
 
@@ -61,7 +61,7 @@ echo "abc123" | strace ./bug9
 
 Procure a chamada `read(...)`. Se ela retornar um erro do tipo
 `EFAULT (Bad address)`, o segundo argumento (o ponteiro do buffer)
-não é um endereço de memória válido — ele é só um número pequeno.
+não é um endereço de memória válido ele é só um número pequeno.
 
 ## 3. Confirme com o GDB
 

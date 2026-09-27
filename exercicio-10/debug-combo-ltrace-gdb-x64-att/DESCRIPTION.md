@@ -76,7 +76,7 @@ gdb ./bug10
 (gdb) info registers rax r12
 ```
 
-Repare que `%rax` muda de valor depois do `call strlen` — toda
+Repare que `%rax` muda de valor depois do `call strlen`toda
 função pode alterar `%rax` livremente, pois ele **não é
 preservado** entre chamadas (é "caller-saved"). Já `%r12` continua
 com a soma correta, porque é um registrador **callee-saved**: por

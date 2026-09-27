@@ -36,8 +36,7 @@ ld -m elf_i386 bug1.o -o bug1
 
 Repare que a arquitetura importa: `-f elf32` no NASM e `-m elf_i386`
 no `ld` são o que garantem um executável **ELF 32-bit**. Rodando
-você já vai notar que a saída está cortada — não aparece a mensagem
-inteira nem a quebra de linha.
+você já vai notar que a saída está cortada não aparece a mensagem inteira nem a quebra de linha.
 
 ## 2. Investigue com o GDB
 

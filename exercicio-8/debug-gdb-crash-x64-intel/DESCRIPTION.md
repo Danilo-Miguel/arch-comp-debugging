@@ -44,7 +44,7 @@ ld bug8.o -o bug8
 ```
 
 Você deve ver `Segmentation fault` e um código de saída `139`
-(128 + sinal 11, SIGSEGV) — e nenhum `OK` na tela.
+(128 + sinal 11, SIGSEGV) e nenhum `OK` na tela.
 
 ## 2. Investigue com o GDB
 
